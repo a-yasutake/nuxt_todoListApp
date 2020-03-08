@@ -8,7 +8,7 @@ export interface Todo {
   id: string;
   // 期限
   deadline: string;
-  // 優先度（1⇒高、2⇒中、3⇒低）
+  // 優先度（0⇒高、1⇒中、2⇒低）
   priority: string;
   // やること
   text: string;
@@ -79,6 +79,7 @@ export const actions: ActionTree<RootState, RootState> = {
           commit("ADD_TODO", todo);
         }
       }
+      if (isBackup) this.dispatch("deleteTodos");
     });
   },
   // データ登録
@@ -95,6 +96,8 @@ export const actions: ActionTree<RootState, RootState> = {
       };
       axios.put(addUrl, data);
     }
+    alert("保存に成功しました。");
+    commit("DELETE_ALL_BACKUP_TODO");
   },
   // データ削除
   deleteTodos({ commit }) {
@@ -106,5 +109,6 @@ export const actions: ActionTree<RootState, RootState> = {
       console.log(i, "url", deleteUrl);
       axios.delete(deleteUrl);
     }
+    this.dispatch("fetchTodos");
   }
 };
