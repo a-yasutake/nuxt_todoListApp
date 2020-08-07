@@ -1,23 +1,34 @@
 <template lang="html">
-  <div>
-    <table class="complete-table">
-      <caption>
-        完了リスト
+  <div class="l-complete-list-area">
+    <table class="complete-list-table">
+      <caption class="table-title">
+        CompleteList
       </caption>
       <thead>
-        <tr>
-          <th>期限</th>
-          <th>優先度</th>
-          <th>Todo</th>
-          <th></th>
+        <tr class="th-complete">
+          <th class="column-date">期限</th>
+          <th class="column-priority">優先度</th>
+          <th class="column-todo-text">Todo</th>
+          <th class="column-button-area"></th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="todo in completedTodos" v-bind:key="todo.id">
-          <td>{{ todo.deadline }}</td>
-          <td>{{ priorityTypes[todo.priority] }}</td>
-          <td>{{ todo.text }}</td>
-          <td><button @click="moveUnComplete(todo.id)">戻す</button></td>
+        <tr
+          class="tr-complete"
+          v-for="todo in completedTodos"
+          v-bind:key="todo.id"
+        >
+          <td class="column-date">{{ todo.deadline }}</td>
+          <td class="column-priority">{{ priorityTypes[todo.priority] }}</td>
+          <td class="column-todo-text">{{ todo.text }}</td>
+          <td class="column-button-area">
+            <button
+              class="button back-todo-button"
+              @click="moveUnComplete(todo.id)"
+            >
+              Back
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -38,13 +49,13 @@ export default class ViewCompleteList extends Vue {
 
   // 完了の一覧取得
   private get completedTodos() {
-    return this.allTodoList.filter(t => t.isComplete === true);
+    return this.allTodoList.filter((t) => t.isComplete === true);
   }
 
   // 未完了一覧へ移動
   private moveUnComplete(todoId: string): void {
     this.$store.commit("CHANGE_TODO_UNCOMPLETE", todoId);
-    this.completedList.filter(t => t.id === todoId);
+    this.completedList.filter((t) => t.id === todoId);
   }
 }
 </script>

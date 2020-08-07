@@ -1,25 +1,30 @@
 <template lang="html">
-  <div>
-    <form>
-      <p class="inline-block">
-        <input type="date" v-model="inputDate" />
+  <div class="l-iuput-area">
+    <form class="input-todo-form">
+      <p class="input-date-area input-column">
+        <input class="input-date" type="date" v-model="inputDate" />
       </p>
-      <p class="inline-block">
-        <select v-model="priority">
+      <p class="input-priority-area input-column">
+        <select class="input-priority" v-model="priority">
           <option value="" hidden>優先度</option>
-          <option value="1"> 高 </option>
-          <option value="2"> 中 </option>
-          <option value="3"> 低 </option>
+          <option value="0"> 高 </option>
+          <option value="1"> 中 </option>
+          <option value="2"> 低 </option>
         </select>
       </p>
-      <p class="inline-block">
-        <input type="text" v-model="inputText" size="40" />
+      <p class="input-text-area input-column">
+        <input
+          class="input-text"
+          type="text"
+          v-model="inputText"
+          maxlength="50"
+        />
       </p>
-      <p class="inline-block">
-        <button type="button" @click="addTodo">追加</button>
-      </p>
-      <p class="inline-block">
-        <input type="reset" value="リセット" />
+      <p class="input-button-area input-column">
+        <button class="button add-button" type="button" @click="addTodo">
+          ADD
+        </button>
+        <input class="button clear-button" type="reset" value="RESET" />
       </p>
     </form>
   </div>
@@ -50,7 +55,7 @@ export default class InputForm extends Vue {
       deadline: this.inputDate,
       priority: this.priority,
       text: this.inputText,
-      isComplete: false
+      isComplete: false,
     };
     this.$store.commit("ADD_TODO", todo);
     this.inputText = "";
@@ -58,9 +63,4 @@ export default class InputForm extends Vue {
 }
 </script>
 
-<style>
-.inline-block {
-  display: inline-block; /* インラインブロック要素にする */
-  height: 30px; /* 高さ指定 */
-}
-</style>
+<style></style>

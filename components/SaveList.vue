@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="save-btn-area">
-    <button id="saveBtn" @click="save">保存</button>
+  <div class="l-save-area">
+    <button class=" button save-button" @click="save">SAVE</button>
   </div>
 </template>
 
@@ -19,20 +19,4 @@ export default class SaveList extends Vue {
 }
 </script>
 
-<style>
-#saveBtn {
-  color: whitesmoke;
-  background-color: rgb(236, 72, 22);
-  display: block;
-  margin: 0 0 0 auto;
-  margin-bottom: 10px;
-  width: 180px;
-}
-#saveBtn:hover {
-  color: whitesmoke;
-  background-color: rgb(214, 29, 29);
-}
-.save-btn-area {
-  width: 820px;
-}
-</style>
+<style></style>
