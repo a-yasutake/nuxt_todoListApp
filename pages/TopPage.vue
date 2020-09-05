@@ -3,6 +3,7 @@
     <h1 class="title main-title">TodoListApp</h1>
     <SaveList />
     <InputForm />
+    <SelectSort />
     <ViewTodoList />
     <ViewComleteList />
   </div>
@@ -14,9 +15,16 @@ import ViewTodoList from "../components/ViewTodoList.vue";
 import ViewComleteList from "../components/ViewCompleteList.vue";
 import SaveList from "../components/SaveList.vue";
 import Property from "../properties/Property";
+import SelectSort from "../components/SelectSort.vue";
 
 @Component({
-  components: { InputForm, ViewTodoList, ViewComleteList, SaveList },
+  components: {
+    InputForm,
+    ViewTodoList,
+    ViewComleteList,
+    SaveList,
+    SelectSort,
+  },
 })
 export default class TopPage extends Vue {}
 </script>
@@ -118,6 +126,18 @@ body {
   border: solid 3px;
   border-color: #272343;
   background-color: #dbdbdb;
+}
+/*sortエリア */
+.l-sort-area {
+  text-align: right;
+  padding-right: 30px;
+  height: 30px;
+  margin-bottom: 0px;
+}
+.select-sort {
+  border: solid 3px;
+  border-color: #272343;
+  height: 100%;
 }
 /*TodoListエリア */
 .l-todo-list-area {

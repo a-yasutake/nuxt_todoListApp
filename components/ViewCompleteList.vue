@@ -43,7 +43,7 @@ import Property from "../properties/Property";
 
 @Component({})
 export default class ViewCompleteList extends Vue {
-  private allTodoList: Todo[] = (this.$store.state as RootState).todos;
+  private allTodoList: Todo[] = (this.$store.state as RootState).todoList;
   private completedList: Todo[] = this.completedTodos;
   private priorityTypes = Property.priorityTypes;
 
@@ -54,7 +54,7 @@ export default class ViewCompleteList extends Vue {
 
   // 未完了一覧へ移動
   private moveUnComplete(todoId: string): void {
-    this.$store.commit("CHANGE_TODO_UNCOMPLETE", todoId);
+    this.$store.commit("CHANGE_TODO_COMPLETE_FLG", todoId);
     this.completedList.filter((t) => t.id === todoId);
   }
 }

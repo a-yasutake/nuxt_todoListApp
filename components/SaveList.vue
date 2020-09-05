@@ -14,7 +14,8 @@ export default class SaveList extends Vue {
   // 保存ボタン押下の処理
   private save() {
     if (!confirm("保存しますよろしいですか？")) return;
-    this.$store.dispatch("getTodos", true);
+    // this.$store.dispatch("getTodos", true);
+    alert("保存機能は停止中です");
   }
 }
 </script>

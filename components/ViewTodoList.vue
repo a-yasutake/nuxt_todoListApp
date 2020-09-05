@@ -7,7 +7,9 @@
       <thead>
         <tr class="th-todo">
           <th class="column-date">期限</th>
-          <th class="column-priority">優先度</th>
+          <th class="column-priority">
+            優先度
+          </th>
           <th class="column-todo-text">Todo</th>
           <th class="column-button-area"></th>
         </tr>
@@ -46,7 +48,7 @@ import Property from "@/properties/Property";
 
 @Component({})
 export default class ViewTodoList extends Vue {
-  private allTodoList: Todo[] = (this.$store.state as RootState).todos;
+  private allTodoList: Todo[] = (this.$store.state as RootState).todoList;
   private uncompletedList: Todo[] = this.uncompletedTodos;
   private priorityTypes = Property.priorityTypes;
 
@@ -62,7 +64,7 @@ export default class ViewTodoList extends Vue {
 
   // 完了一覧へ移動
   private moveComplete(todoId: string): void {
-    this.$store.commit("CHANGE_TODO_COMPLETE", todoId);
+    this.$store.commit("CHANGE_TODO_COMPLETE_FLG", todoId);
     this.uncompletedList.filter((t) => t.id === todoId);
   }
 
