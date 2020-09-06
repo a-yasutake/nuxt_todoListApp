@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="l_todo-list-area">
+    <SelectSort />
     <table class="todo-list-table">
       <caption class="table-title">
         TodoList
@@ -47,8 +48,13 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 import { RootState } from "~/store";
 import { Todo } from "../store/index";
 import Property from "@/properties/Property";
+import SelectSort from "./SelectSort.vue";
 
-@Component({})
+@Component({
+  components: {
+    SelectSort,
+  },
+})
 export default class ViewTodoList extends Vue {
   private allTodoList: Todo[] = (this.$store.state as RootState).todoList;
   private uncompletedList: Todo[] = this.uncompletedTodos;

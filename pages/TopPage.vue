@@ -3,7 +3,6 @@
     <h1 class="title main-title">TodoListApp</h1>
     <SaveList />
     <InputForm />
-    <SelectSort />
     <ViewTodoList />
     <ViewComleteList />
   </div>
@@ -15,7 +14,6 @@ import ViewTodoList from "../components/ViewTodoList.vue";
 import ViewComleteList from "../components/ViewCompleteList.vue";
 import SaveList from "../components/SaveList.vue";
 import Property from "../properties/Property";
-import SelectSort from "../components/SelectSort.vue";
 
 @Component({
   components: {
@@ -23,7 +21,6 @@ import SelectSort from "../components/SelectSort.vue";
     ViewTodoList,
     ViewComleteList,
     SaveList,
-    SelectSort,
   },
 })
 export default class TopPage extends Vue {}
@@ -57,7 +54,6 @@ body {
 .main-title {
   /*線の種類（実線） 太さ 色*/
   border-bottom: solid 3px #272343;
-  /* background-color: #bae8e8; */
   padding-left: 10px;
   padding-top: 5px;
   font-size: 35px;
@@ -66,7 +62,6 @@ body {
 /*保存エリア */
 .l_save-area {
   text-align: right;
-  /* padding-right: 30px; */
 }
 .save-button {
   width: 200px;
@@ -85,9 +80,6 @@ body {
 .input-todo-list {
   display: flex;
 }
-/* .input-todo-form {
-  height: 90px;
-} */
 .input-column {
   height: 50px;
   margin-left: 3px;
@@ -140,9 +132,11 @@ body {
 /*sortエリア */
 .l_sort-area {
   text-align: right;
-  padding-right: 30px;
   height: 30px;
   margin-bottom: 0px;
+  position: absolute;
+  top: -1%;
+  right: 0%;
 }
 .select-sort {
   border: solid 3px;
@@ -151,6 +145,7 @@ body {
 }
 /*TodoListエリア */
 .l_todo-list-area {
+  position: relative;
 }
 .todo-list-table {
   margin: 0 auto;
@@ -193,32 +188,29 @@ td {
   color: #272343;
   font-weight: bold;
   font-size: 25px;
+  text-align: left;
+  padding-left: 10px;
   margin-bottom: 5px;
 }
 th:nth-child(1),
 td:nth-child(1) {
-  /* background-color: red; */
   width: 150px;
   text-align: center;
 }
 th:nth-child(2),
 td:nth-child(2) {
-  /* background-color: royalblue; */
   width: 100px;
   text-align: center;
 }
 th:nth-child(3),
 td:nth-child(3) {
-  /* background-color: seagreen; */
   width: 430px;
   padding-right: 50px;
 }
 th:nth-child(4) {
-  /* background-color: thistle; */
   width: 300px;
 }
 td:nth-child(4) {
-  /* background-color: thistle; */
   width: 275px;
   text-align: center;
 }
