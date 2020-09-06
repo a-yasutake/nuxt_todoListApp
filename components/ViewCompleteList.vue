@@ -1,15 +1,15 @@
 <template lang="html">
-  <div class="l-complete-list-area">
+  <div class="l_complete-list-area">
     <table class="complete-list-table">
       <caption class="table-title">
         CompleteList
       </caption>
       <thead>
         <tr class="th-complete">
-          <th class="column-date">期限</th>
-          <th class="column-priority">優先度</th>
-          <th class="column-todo-text">Todo</th>
-          <th class="column-button-area"></th>
+          <th data-name="column-date">期限</th>
+          <th data-name="column-priority">優先度</th>
+          <th data-name="column-todo-text">Todo</th>
+          <th data-name="column-button-area"></th>
         </tr>
       </thead>
       <tbody>
@@ -18,10 +18,12 @@
           v-for="todo in completedTodos"
           v-bind:key="todo.id"
         >
-          <td class="column-date">{{ todo.deadline }}</td>
-          <td class="column-priority">{{ priorityTypes[todo.priority] }}</td>
-          <td class="column-todo-text">{{ todo.text }}</td>
-          <td class="column-button-area">
+          <td data-name="column-date">{{ todo.deadline }}</td>
+          <td data-name="column-priority">
+            {{ priorityTypes[todo.priority] }}
+          </td>
+          <td data-name="column-todo-text">{{ todo.text }}</td>
+          <td data-name="column-button-area">
             <button
               class="button back-todo-button"
               @click="moveUnComplete(todo.id)"

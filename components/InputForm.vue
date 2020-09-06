@@ -1,31 +1,33 @@
 <template lang="html">
-  <div class="l-iuput-area">
+  <div class="l_iuput-area">
     <form class="input-todo-form">
-      <p class="input-date-area input-column">
-        <input class="input-date" type="date" v-model="inputDate" />
-      </p>
-      <p class="input-priority-area input-column">
-        <select class="input-priority" v-model="priority">
-          <option value="" hidden>優先度</option>
-          <option value="0"> 高 </option>
-          <option value="1"> 中 </option>
-          <option value="2"> 低 </option>
-        </select>
-      </p>
-      <p class="input-text-area input-column">
-        <input
-          class="input-text"
-          type="text"
-          v-model="inputText"
-          maxlength="50"
-        />
-      </p>
-      <p class="input-button-area input-column">
-        <button class="button add-button" type="button" @click="addTodo">
-          ADD
-        </button>
-        <input class="button clear-button" type="reset" value="RESET" />
-      </p>
+      <ul class="input-todo-list">
+        <li class="input-date-area input-column">
+          <input class="input-date" type="date" v-model="inputDate" />
+        </li>
+        <li class="input-priority-area input-column">
+          <select class="input-priority" v-model="priority">
+            <option value="" hidden>優先度</option>
+            <option value="0"> 高 </option>
+            <option value="1"> 中 </option>
+            <option value="2"> 低 </option>
+          </select>
+        </li>
+        <li class="input-text-area input-column">
+          <input
+            class="input-text"
+            type="text"
+            v-model="inputText"
+            maxlength="50"
+          />
+        </li>
+        <li class="input-button-area input-column">
+          <button class="button add-button" type="button" @click="addTodo">
+            ADD
+          </button>
+          <input class="button clear-button" type="reset" value="RESET" />
+        </li>
+      </ul>
     </form>
   </div>
 </template>

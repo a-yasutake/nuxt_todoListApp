@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="l-save-area">
+  <div class="l_save-area">
     <button class=" button save-button" @click="save">SAVE</button>
   </div>
 </template>

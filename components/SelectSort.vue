@@ -1,5 +1,5 @@
 <template>
-  <div class="l-sort-area">
+  <div class="l_sort-area">
     <select class="select-sort" @change="sortList(sortType)" v-model="sortType">
       <option value="" hidden>並べ替え</option>
       <option value="1">並べ替え：優先度が高い順番</option>

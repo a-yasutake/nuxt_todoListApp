@@ -1,5 +1,5 @@
 <template>
-  <div id="TopPage" class="l-main">
+  <div id="TopPage" class="l_main">
     <h1 class="title main-title">TodoListApp</h1>
     <SaveList />
     <InputForm />
@@ -35,7 +35,7 @@ body {
     "Segoe UI Black", "Arial Black", "メイリオ", Meiryo, "Meiryo UI", YuGothic,
     "Yu Gothic", sans-serif;
 }
-.l-main {
+.l_main {
   width: 980px;
   margin: 0 auto;
   background-color: #fffffe;
@@ -44,7 +44,6 @@ body {
   font-weight: bold;
   color: #272343;
   outline: 0;
-  display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
   border-bottom: solid 4px #627295;
@@ -65,9 +64,9 @@ body {
   margin-top: 10px;
 }
 /*保存エリア */
-.l-save-area {
+.l_save-area {
   text-align: right;
-  padding-right: 30px;
+  /* padding-right: 30px; */
 }
 .save-button {
   width: 200px;
@@ -77,58 +76,69 @@ body {
   margin-top: 20px;
 }
 /*入力エリア */
-.l-iuput-area {
+.l_iuput-area {
   width: 980px;
   height: 100px;
   text-align: center;
   margin-top: 20px;
 }
-.input-todo-form {
-  height: 90px;
+.input-todo-list {
+  display: flex;
 }
+/* .input-todo-form {
+  height: 90px;
+} */
 .input-column {
   height: 50px;
-  display: inline-block;
-  margin-right: 3px;
+  margin-left: 3px;
+  width: 100%;
 }
 .input-date-area {
-  width: 130px;
+  width: 20%;
 }
 .input-date {
   width: 100%;
-  height: 30px;
+  height: 40px;
+  box-sizing: border-box;
 }
 .input-priority-area {
-  width: 100px;
+  width: 10%;
 }
 .input-priority {
-  height: 35px;
+  height: 40px;
+  box-sizing: border-box;
   width: 100%;
 }
 .input-text-area {
-  width: 350px;
+  width: 40%;
 }
 .input-text {
   width: 100%;
-  height: 30px;
+  height: 40px;
+  box-sizing: border-box;
 }
 .input-button-area {
-  width: 300px;
+  width: 30%;
+  text-align: right;
 }
 .add-button {
   width: 130px;
   border: solid 3px;
   border-color: #272343;
   background-color: #ffd803;
+  height: 40px;
+  box-sizing: border-box;
 }
 .clear-button {
   width: 130px;
   border: solid 3px;
   border-color: #272343;
   background-color: #dbdbdb;
+  height: 40px;
+  box-sizing: border-box;
 }
 /*sortエリア */
-.l-sort-area {
+.l_sort-area {
   text-align: right;
   padding-right: 30px;
   height: 30px;
@@ -140,11 +150,11 @@ body {
   height: 100%;
 }
 /*TodoListエリア */
-.l-todo-list-area {
+.l_todo-list-area {
 }
 .todo-list-table {
   margin: 0 auto;
-  width: 900px;
+  width: 100%;
   table-layout: fixed;
 }
 .th-todo {
@@ -166,10 +176,17 @@ body {
   border-color: #272343;
 }
 /*（共通）TodoListエリア・Completeエリア */
+thead,
+tbody {
+  display: block;
+}
+tbody {
+  height: 200px;
+  overflow-y: scroll;
+}
 th,
 td {
   vertical-align: middle;
-  /*word-break: break-all;*/
   overflow-wrap: break-word;
 }
 .table-title {
@@ -178,28 +195,40 @@ td {
   font-size: 25px;
   margin-bottom: 5px;
 }
-.column-date {
+th:nth-child(1),
+td:nth-child(1) {
+  /* background-color: red; */
   width: 150px;
   text-align: center;
 }
-.column-priority {
+th:nth-child(2),
+td:nth-child(2) {
+  /* background-color: royalblue; */
   width: 100px;
   text-align: center;
 }
-.column-todo-text {
-  width: 400px;
+th:nth-child(3),
+td:nth-child(3) {
+  /* background-color: seagreen; */
+  width: 430px;
   padding-right: 50px;
 }
-.column-button-area {
-  width: 200px;
+th:nth-child(4) {
+  /* background-color: thistle; */
+  width: 300px;
+}
+td:nth-child(4) {
+  /* background-color: thistle; */
+  width: 275px;
+  text-align: center;
 }
 /*CompleteListエリア */
-.l-complete-list-area {
+.l_complete-list-area {
   margin-top: 50px;
 }
 .complete-list-table {
   margin: 0 auto;
-  width: 900px;
+  width: 100%;
   table-layout: fixed;
 }
 
