@@ -4,7 +4,7 @@ const axios = require("axios");
 let url = "https://XXXXXX.firebaseio.com/todos"; //XXXXXX ⇒firebaseプロジェクトIDに置き換える
 
 export interface Todo {
-  // ID
+  // ID(一意)
   id: string;
   // 期限
   deadline: string;
